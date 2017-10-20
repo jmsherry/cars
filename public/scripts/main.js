@@ -33,7 +33,7 @@ $(function(){
   function writeCars (cars) {
     console.log(cars, cars.length);
     if (!cars.length) {
-      $carsList.addClass('uninitialised').html('<li>No cars loaded</li>');
+      $carsList.addClass('uninitialised').html('<li>No cars to display</li>');
       return;
     }
     $carsList.html('').removeClass('loading uninitialised');
