@@ -31,6 +31,11 @@ $(function(){
   }
 
   function writeCars (cars) {
+    console.log(cars, cars.length);
+    if (!cars.length) {
+      $carsList.addClass('uninitialised').html('<li>No cars loaded</li>');
+      return;
+    }
     $carsList.html('').removeClass('loading uninitialised');
     cars.forEach(function(car){
       $carsList.append(carTemplate(car));
@@ -54,7 +59,7 @@ $(function(){
       method: 'DELETE',
       url: '/cars/' + id
     }).done(function(response){
-
+      getCars();
     }).fail(errorHandler);
   }
 
